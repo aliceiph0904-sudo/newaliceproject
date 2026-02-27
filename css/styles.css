@@ -133,25 +133,59 @@ h2.h5 {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  display: inline-flex;
-  gap: 0.35rem;
-  min-width: 5.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 5.1rem;
+  padding: 0.14rem;
+  background: linear-gradient(135deg, rgba(239, 248, 252, 0.72) 0%, rgba(216, 234, 241, 0.66) 100%);
+  border: 1px solid rgba(185, 213, 221, 0.75);
+  border-radius: 999px;
   font-weight: 600;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 6px 16px rgba(47, 127, 147, 0.14);
+  cursor: pointer;
+}
+
+.lang-slider {
+  position: absolute;
+  top: 0.14rem;
+  left: 0.14rem;
+  width: calc(50% - 0.14rem);
+  height: calc(100% - 0.28rem);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(116, 189, 204, 0.95) 0%, rgba(65, 149, 169, 0.95) 100%);
+  box-shadow: 0 2px 8px rgba(47, 127, 147, 0.28);
+  transition: transform 0.16s ease;
+}
+
+.lang-toggle[data-active="ru"] .lang-slider {
+  transform: translateX(100%);
 }
 
 .lang-toggle .lang-option {
+  position: relative;
+  z-index: 1;
   min-width: 2.2rem;
   padding: 0.16rem 0.4rem;
-  color: #2c6f7f;
-  background: linear-gradient(135deg, #eef7fa 0%, #d9ebf1 100%);
-  border: 1px solid #b9d5dd;
+  color: #265d6b;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  transition: color 0.16s ease;
+  pointer-events: none;
 }
 
-.lang-toggle .active-language {
+.lang-toggle .lang-option.active-language {
   color: #ffffff;
-  background: linear-gradient(135deg, #74bdcc 0%, #4195a9 100%);
-  border-color: #4195a9;
-  border-radius: 6px;
+}
+
+.lang-toggle .lang-option:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Links styling */

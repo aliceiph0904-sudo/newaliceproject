@@ -16,9 +16,10 @@
   <body>
     <main class="d-flex align-items-center justify-content-center min-vh-100">
       <div class="card text-center shadow-sm p-4" style="max-width:480px; width:90%;">
-        <div class="lang-toggle" role="group" aria-label="Language switcher">
-          <button id="lang-en" class="btn btn-outline-secondary btn-sm lang-option" type="button" aria-label="Switch to English" aria-pressed="true">EN</button>
-          <button id="lang-ru" class="btn btn-outline-secondary btn-sm lang-option" type="button" aria-label="Переключить на русский" aria-pressed="false">RU</button>
+        <div id="lang-toggle" class="lang-toggle" role="group" aria-label="Language switcher" data-active="en">
+          <span class="lang-slider" aria-hidden="true"></span>
+          <button id="lang-en" class="lang-option" type="button" aria-label="Switch to English" aria-pressed="true">EN</button>
+          <button id="lang-ru" class="lang-option" type="button" aria-label="Переключить на русский" aria-pressed="false">RU</button>
         </div>
         <img src="img/profile.jpg" alt="Photo of Alisa Tolstikova" class="profile-img mx-auto d-block mb-3" id="profile-photo">
         <h1 class="h3 mb-1" id="person-name">Alisa Tolstikova</h1>
@@ -89,6 +90,7 @@
       const metaDescription = document.querySelector('meta[name="description"]');
       const ogTitle = document.querySelector('meta[property="og:title"]');
       const ogDescription = document.querySelector('meta[property="og:description"]');
+      const langToggle = document.getElementById('lang-toggle');
       const langEn = document.getElementById('lang-en');
       const langRu = document.getElementById('lang-ru');
       const contactsSection = document.getElementById('contacts-section');
@@ -104,6 +106,7 @@
         ogTitle.setAttribute('content', content.ogTitle);
         ogDescription.setAttribute('content', content.ogDescription);
 
+        langToggle.setAttribute('data-active', language);
         langEn.classList.toggle('active-language', language === 'en');
         langRu.classList.toggle('active-language', language === 'ru');
         langEn.setAttribute('aria-pressed', language === 'en' ? 'true' : 'false');
@@ -125,14 +128,10 @@
 
       applyLanguage(initialLanguage);
 
-      langEn.addEventListener('click', () => {
-        applyLanguage('en');
-        localStorage.setItem('siteLanguage', 'en');
-      });
-
-      langRu.addEventListener('click', () => {
-        applyLanguage('ru');
-        localStorage.setItem('siteLanguage', 'ru');
+      langToggle.addEventListener('click', () => {
+        const nextLanguage = document.documentElement.lang === 'ru' ? 'en' : 'ru';
+        applyLanguage(nextLanguage);
+        localStorage.setItem('siteLanguage', nextLanguage);
       });
 
       contactsSection.addEventListener('click', (event) => {
