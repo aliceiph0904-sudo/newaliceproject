@@ -26,7 +26,7 @@
 
         <section class="mb-3">
           <h2 class="h5" id="resume-title">Resume</h2>
-          <a class="btn btn-primary mt-2" href="assets/cv.pdf" target="_blank" rel="noopener" id="resume-button">Download Resume</a>
+          <a class="btn btn-primary mt-2" href="cv%20in%20English.pdf" target="_blank" rel="noopener" id="resume-button">Download Resume</a>
         </section>
 
         <hr>
@@ -55,6 +55,7 @@
           personRole: 'Management Student',
           resumeTitle: 'Resume',
           resumeButton: 'Download Resume',
+          resumeHref: 'cv%20in%20English.pdf',
           contactsTitle: 'Contacts',
           vkLink: 'VKontakte'
         },
@@ -69,6 +70,7 @@
           personRole: 'Студентка направления «Менеджмент»',
           resumeTitle: 'Резюме',
           resumeButton: 'Скачать резюме',
+          resumeHref: 'assets/cv%203.pdf',
           contactsTitle: 'Контакты',
           vkLink: 'ВКонтакте'
         }
@@ -97,7 +99,9 @@
         document.getElementById('person-name').textContent = content.personName;
         document.getElementById('person-role').textContent = content.personRole;
         document.getElementById('resume-title').textContent = content.resumeTitle;
-        document.getElementById('resume-button').textContent = content.resumeButton;
+        const resumeButton = document.getElementById('resume-button');
+        resumeButton.textContent = content.resumeButton;
+        resumeButton.setAttribute('href', content.resumeHref);
         document.getElementById('contacts-title').textContent = content.contactsTitle;
         document.getElementById('vk-link').textContent = content.vkLink;
       }
