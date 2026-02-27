@@ -238,6 +238,7 @@ a:hover {
 
 #contacts-label {
   text-align: left;
+  margin-left: 0.28rem;
 }
 
 .contacts-arrow {
@@ -246,6 +247,7 @@ a:hover {
   width: 0.95rem;
   height: 0.55rem;
   margin-left: 0;
+  margin-right: 0.22rem;
   vertical-align: middle;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -315,7 +317,7 @@ section {
 section:last-of-type {
   text-align: center;
   font-size: 0.9rem;
-  width: min(100%, 20rem);
+  width: min(100%, 17.2rem);
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
