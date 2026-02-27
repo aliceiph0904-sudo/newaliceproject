@@ -32,11 +32,24 @@
         <hr>
 
         <section>
-          <h2 class="h5" id="contacts-title">Contacts</h2>
-          <ul class="list-unstyled mb-0">
-            <li><a href="mailto:aliska_tolstikova@mail.ru">aliska_tolstikova@mail.ru</a></li>
-            <li><a href="https://vk.ru/alisatol0904" target="_blank" rel="noopener" id="vk-link">VKontakte</a></li>
-          </ul>
+          <button
+            class="btn btn-link h5 p-0 mb-2 contacts-toggle"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#contacts-collapse"
+            aria-expanded="false"
+            aria-controls="contacts-collapse"
+            id="contacts-title"
+          >
+            <span id="contacts-label">Contacts</span>
+            <span class="contacts-arrow" aria-hidden="true">▼</span>
+          </button>
+          <div class="collapse" id="contacts-collapse">
+            <ul class="list-unstyled mb-0">
+              <li><a href="mailto:aliska_tolstikova@mail.ru">aliska_tolstikova@mail.ru</a></li>
+              <li><a href="https://vk.ru/alisatol0904" target="_blank" rel="noopener" id="vk-link">VKontakte</a></li>
+            </ul>
+          </div>
         </section>
       </div>
     </main>
@@ -102,7 +115,7 @@
         const resumeButton = document.getElementById('resume-button');
         resumeButton.textContent = content.resumeButton;
         resumeButton.setAttribute('href', content.resumeHref);
-        document.getElementById('contacts-title').textContent = content.contactsTitle;
+        document.getElementById('contacts-label').textContent = content.contactsTitle;
         document.getElementById('vk-link').textContent = content.vkLink;
       }
 

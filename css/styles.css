@@ -2,7 +2,9 @@
 :root {
   --bg-light: #f5f5f5;
   --card-bg: #ffffff;
-  --accent-blue: #0d6efd;
+  --accent-blue: #5fa9bb;
+  --accent-blue-soft: #cfe4ea;
+  --accent-blue-deep: #2f7f93;
   --text-dark: #222222;
   --text-muted: #6c757d;
   --border-light: #e9ecef;
@@ -75,8 +77,8 @@ h2.h5 {
 
 /* Button styling */
 .btn-primary {
-  background-color: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, #72b9c9 0%, #3f90a4 100%);
+  border-color: #3f90a4;
   color: #ffffff !important;
   font-weight: 500;
   padding: 0.6rem 1.5rem;
@@ -85,15 +87,15 @@ h2.h5 {
 }
 
 .btn-primary:hover {
-  background-color: #0b5ed7;
-  border-color: #0b5ed7;
+  background: linear-gradient(135deg, #4a9eb2 0%, #317e92 100%);
+  border-color: #317e92;
   color: #ffffff !important;
-  box-shadow: 0 4px 8px rgba(13, 110, 253, 0.25);
+  box-shadow: 0 4px 8px rgba(63, 144, 164, 0.28);
 }
 
 .btn-primary:active {
-  background-color: #0a58ca;
-  border-color: #0a58ca;
+  background: linear-gradient(135deg, #3f90a4 0%, #2f7689 100%);
+  border-color: #2f7689;
   color: #ffffff !important;
 }
 
@@ -119,8 +121,8 @@ h2.h5 {
 
 .lang-toggle .active-language {
   color: #ffffff;
-  background-color: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, #74bdcc 0%, #4195a9 100%);
+  border-color: #4195a9;
   border-radius: 6px;
 }
 
@@ -132,7 +134,7 @@ a {
 }
 
 a:hover {
-  color: #0b5ed7;
+  color: var(--accent-blue-deep);
   text-decoration: underline;
 }
 
@@ -146,11 +148,38 @@ a:hover {
   display: inline-block;
 }
 
+.contacts-toggle {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem !important;
+  line-height: 1.25;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+
+.contacts-arrow {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.contacts-toggle[aria-expanded="true"] .contacts-arrow {
+  transform: rotate(180deg);
+}
+
+.contacts-toggle:hover,
+.contacts-toggle:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 /* Horizontal rule */
 hr {
   border: none;
   border-top: 1px solid var(--border-light);
-  margin: 1.5rem 0;
+  margin: 0.9rem 0 0.65rem;
 }
 
 /* Section spacing */
@@ -161,7 +190,34 @@ section {
 /* Align last section (Contacts) to left */
 section:last-of-type {
   text-align: left;
-  padding-left: 1rem;
+  padding-left: 0.2rem;
+  padding-right: 0.1rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.4rem;
+  border: 1px solid #b7d5dd;
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #77b9c8 0%, #a8d0d8 45%, #f4f9fa 100%);
+}
+
+#contacts-collapse .list-unstyled li {
+  margin: 0.35rem 0;
+}
+
+#contacts-collapse,
+#contacts-collapse .list-unstyled li {
+  color: var(--text-dark);
+}
+
+#contacts-collapse a {
+  color: #2a6070;
+  font-weight: 500;
+}
+
+#contacts-collapse a:hover,
+#contacts-collapse a:focus {
+  color: #214d5a;
+  text-decoration: underline;
 }
 
 /* Responsive design for mobile */
