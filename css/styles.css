@@ -221,9 +221,13 @@ a:hover {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
   margin-left: 0;
   margin-bottom: 0.2rem !important;
-  line-height: 1.25;
+  line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
   background: transparent;
   border: none;
@@ -232,14 +236,42 @@ a:hover {
 }
 
 .contacts-arrow {
+  position: relative;
   display: inline-block;
-  margin-left: 0.35rem;
-  font-size: 0.8rem;
-  transition: transform 0.2s ease;
+  width: 0.95rem;
+  height: 0.55rem;
+  margin-left: 0;
+  vertical-align: middle;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contacts-arrow::before,
+.contacts-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0.52rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 999px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.contacts-arrow::before {
+  left: 50%;
+  transform-origin: right center;
+  transform: translateX(-100%) rotate(40deg);
+}
+
+.contacts-arrow::after {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(-40deg);
 }
 
 .contacts-toggle[aria-expanded="true"] .contacts-arrow {
   transform: rotate(180deg);
+  opacity: 0.95;
 }
 
 .contacts-toggle:hover,
